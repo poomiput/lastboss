@@ -1,0 +1,226 @@
+.hero {
+  background-color: var(--color-brand-teal-deep);
+  color: var(--color-on-dark);
+  padding: var(--space-section-sm) 0;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 820px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 767px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 28px;
+  }
+}
+
+.subheading {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-on-dark-muted);
+  max-width: 680px;
+}
+
+.readinessCard {
+  background-color: var(--color-brand-teal-mid);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.readinessCard > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.readinessLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-on-dark-muted);
+}
+
+.readinessValue {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-brand-green);
+}
+
+.readinessNote {
+  font-size: 13px;
+  color: var(--color-on-dark-muted);
+}
+
+.body {
+  padding: var(--space-section-sm) var(--space-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.sectionSub {
+  font-size: 14px;
+  color: var(--color-steel);
+}
+
+.gapList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gapCard {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.gapHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.gapSkill {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.gapBarWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gapTrack {
+  position: relative;
+  height: 10px;
+  background-color: var(--color-hairline-soft);
+  border-radius: var(--radius-full);
+}
+
+.gapFillCurrent {
+  height: 100%;
+  background-color: var(--color-brand-teal-mid);
+  border-radius: var(--radius-full);
+}
+
+.gapRequiredMarker {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 16px;
+  background-color: var(--color-accent-orange);
+}
+
+.gapNumbers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-steel);
+}
+
+.gapCourses {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-hairline-soft);
+}
+
+.gapCoursesLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.gapCourseChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gapCourseChip {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-brand-green-dark);
+  background-color: var(--color-brand-green-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.courseSlot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.rankTag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-brand-green-dark);
+}

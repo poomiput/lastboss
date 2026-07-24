@@ -1,0 +1,303 @@
+.hero {
+  background-color: var(--color-brand-teal-deep);
+  color: var(--color-on-dark);
+  padding: var(--space-section-sm) 0 var(--space-xxl);
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 780px;
+}
+
+.backLink {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-on-dark-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.heroTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.targetLevel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-on-dark-muted);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-on-dark-muted);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  color: var(--color-on-dark-muted);
+  margin-top: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-hairline-dark);
+}
+
+.body {
+  padding: var(--space-section-sm) var(--space-xxl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-xl);
+  align-items: start;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.card {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.longDescription {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-slate);
+}
+
+.skillTags {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-hairline-soft);
+}
+
+.skillTagsLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.skillTagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skillTag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-brand-green-dark);
+  background-color: var(--color-brand-green-soft);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.moduleList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.moduleItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-hairline-soft);
+}
+
+.moduleItem:last-child {
+  border-bottom: none;
+}
+
+.moduleCheck {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-hairline-strong);
+  background-color: var(--color-canvas);
+  color: var(--color-steel);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moduleCheckDone {
+  background-color: var(--color-brand-green);
+  border-color: var(--color-brand-green);
+  color: var(--color-on-primary);
+}
+
+.moduleInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.moduleTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.moduleTitleDone {
+  color: var(--color-steel);
+  text-decoration: line-through;
+}
+
+.moduleDuration {
+  font-size: 13px;
+  color: var(--color-steel);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+.progressCard {
+  background-color: var(--color-surface-feature);
+  border: 1px solid var(--color-brand-green);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.progressLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brand-green-dark);
+}
+
+.progressFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressPercent {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.statusBadge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.statusBadge-completed {
+  background-color: var(--color-brand-green);
+  color: var(--color-on-primary);
+}
+
+.statusBadge-in-progress {
+  background-color: var(--color-canvas);
+  color: var(--color-brand-teal-mid);
+  border: 1px solid var(--color-brand-teal-mid);
+}
+
+.statusBadge-not-started {
+  background-color: var(--color-canvas);
+  color: var(--color-muted);
+  border: 1px solid var(--color-hairline-strong);
+}
+
+.progressHint {
+  font-size: 12px;
+  color: var(--color-slate);
+  line-height: 1.5;
+}
+
+.infoCard {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-hairline-soft);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.infoLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.infoValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+}

@@ -1,0 +1,104 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-2);
+  border-color: var(--color-hairline-strong);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.targetLevel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-stone);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-slate);
+  flex: 1;
+}
+
+.matchReason {
+  background-color: var(--color-surface-feature);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.matchLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-brand-green-dark);
+}
+
+.matchSkills {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 13px;
+  color: var(--color-steel);
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-hairline-strong);
+}
+
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.progressRow > :first-child {
+  flex: 1;
+}
+
+.statusText {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-steel);
+  white-space: nowrap;
+}
+
+.link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brand-green-dark);
+  margin-top: var(--space-xs);
+}
