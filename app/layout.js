@@ -1,16 +1,17 @@
-import './globals.scss';
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
+import "./globals.scss";
+import { Noto_Sans_Thai } from "next/font/google";
 
-export const metadata = {
-  title: 'PathFinder | Logistics Career Growth',
-  description:
-    'Career matching และแผนพัฒนาศักยภาพสำหรับพนักงานองค์กรโลจิสติกส์ ตั้งแต่ฝ่ายคลังจนถึงฝ่ายบริหาร',
-};
+const noto = Noto_Sans_Thai({
+  subsets: ["thai", "latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // เลือกน้ำหนักที่ใช้
+  variable: "--font-noto-sans-thai",
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="th">
-      <body>
+      <body className={noto.className}>
         <Navbar />
         <main>{children}</main>
       </body>

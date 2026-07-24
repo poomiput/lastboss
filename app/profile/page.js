@@ -1,7 +1,8 @@
-import Link from 'next/link';
-import styles from './profile.module.scss';
-import Badge from '../../components/Badge';
-import ProgressBar from '../../components/ProgressBar';
+import Link from "next/link";
+import styles from "./profile.module.scss";
+import Badge from "../../components/Badge";
+import Image from "next/image";
+import ProgressBar from "../../components/ProgressBar";
 import {
   EMPLOYEE,
   LEVELS,
@@ -9,16 +10,16 @@ import {
   getNextLevel,
   tracksProgress,
   getOverallReadiness,
-} from '../../lib/data';
+} from "../../lib/data";
 
 const TRACK_STATUS_LABEL = {
-  completed: 'เรียนจบแล้ว',
-  'in-progress': 'กำลังดำเนินการ',
-  'not-started': 'ยังไม่เริ่ม',
+  completed: "เรียนจบแล้ว",
+  "in-progress": "กำลังดำเนินการ",
+  "not-started": "ยังไม่เริ่ม",
 };
 
 export const metadata = {
-  title: 'โปรไฟล์ | PathFinder',
+  title: "โปรไฟล์ | PathFinder",
 };
 
 export default function ProfilePage() {
@@ -27,17 +28,33 @@ export default function ProfilePage() {
   const progress = tracksProgress(EMPLOYEE);
   const readiness = getOverallReadiness();
 
-  const timelineStart = Math.max(0, LEVELS.findIndex((l) => l.code === EMPLOYEE.levelCode) - 1);
+  const timelineStart = Math.max(
+    0,
+    LEVELS.findIndex((l) => l.code === EMPLOYEE.levelCode) - 1,
+  );
   const timeline = LEVELS.slice(timelineStart, timelineStart + 3);
 
   return (
     <>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <div className={styles.avatarLg} aria-hidden="true">
-            {EMPLOYEE.avatarInitials}
+          <div
+            style={{
+              border: "2px solid #00ed64",
+              width: "8rem",
+              height: "8rem",
+              borderRadius: "50%",
+              overflow: "hidden",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/profile.jpg"
+              alt="profile"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </div>
-
           <div className={styles.heroInfo}>
             <div className={styles.heroBadges}>
               <Badge tone="green">{currentLevel.code}</Badge>
@@ -61,7 +78,9 @@ export default function ProfilePage() {
               </div>
               <div>
                 <span className={styles.metaLabel}>อายุงาน</span>
-                <span className={styles.metaValue}>{EMPLOYEE.tenureYears} ปี</span>
+                <span className={styles.metaValue}>
+                  {EMPLOYEE.tenureYears} ปี
+                </span>
               </div>
               <div>
                 <span className={styles.metaLabel}>ผู้บังคับบัญชา</span>
@@ -83,7 +102,9 @@ export default function ProfilePage() {
           <div className={styles.card}>
             <div className={styles.cardHead}>
               <h2 className={styles.cardTitle}>เส้นทางความก้าวหน้า</h2>
-              <p className={styles.cardSub}>ตำแหน่งปัจจุบันเทียบกับสายอาชีพในองค์กร</p>
+              <p className={styles.cardSub}>
+                ตำแหน่งปัจจุบันเทียบกับสายอาชีพในองค์กร
+              </p>
             </div>
 
             <ol className={styles.timeline}>
@@ -92,16 +113,22 @@ export default function ProfilePage() {
                 return (
                   <li
                     key={level.code}
-                    className={`${styles.timelineItem} ${isCurrent ? styles.timelineItemActive : ''}`}
+                    className={`${styles.timelineItem} ${isCurrent ? styles.timelineItemActive : ""}`}
                   >
                     <span className={styles.timelineDot} aria-hidden="true" />
                     <div>
                       <span className={styles.timelineCode}>
                         {level.code}
-                        {isCurrent && <span className={styles.currentTag}>ปัจจุบัน</span>}
+                        {isCurrent && (
+                          <span className={styles.currentTag}>ปัจจุบัน</span>
+                        )}
                       </span>
-                      <span className={styles.timelineTitle}>{level.title}</span>
-                      <span className={styles.timelineTrack}>{level.track}</span>
+                      <span className={styles.timelineTitle}>
+                        {level.title}
+                      </span>
+                      <span className={styles.timelineTrack}>
+                        {level.track}
+                      </span>
                     </div>
                   </li>
                 );
@@ -111,9 +138,12 @@ export default function ProfilePage() {
 
           <div className={styles.card}>
             <div className={styles.cardHead}>
-              <h2 className={styles.cardTitle}>ความคืบหน้าของ Track ระดับ {currentLevel.code}</h2>
+              <h2 className={styles.cardTitle}>
+                ความคืบหน้าของ Track ระดับ {currentLevel.code}
+              </h2>
               <p className={styles.cardSub}>
-                Track ที่ทำสำเร็จแล้ว เทียบกับ Track ทั้งหมดที่ต้องทำในตำแหน่งปัจจุบัน
+                Track ที่ทำสำเร็จแล้ว เทียบกับ Track
+                ทั้งหมดที่ต้องทำในตำแหน่งปัจจุบัน
               </p>
             </div>
 
@@ -131,7 +161,9 @@ export default function ProfilePage() {
                     aria-hidden="true"
                   />
                   <span className={styles.trackName}>{track.title}</span>
-                  <span className={`${styles.trackStatus} ${styles[`trackStatus-${track.status}`]}`}>
+                  <span
+                    className={`${styles.trackStatus} ${styles[`trackStatus-${track.status}`]}`}
+                  >
                     {TRACK_STATUS_LABEL[track.status]}
                   </span>
                 </li>
@@ -142,15 +174,24 @@ export default function ProfilePage() {
 
         <div className={styles.card}>
           <div className={styles.cardHead}>
-            <h2 className={styles.cardTitle}>ระดับความสามารถปัจจุบัน (Competencies)</h2>
+            <h2 className={styles.cardTitle}>
+              ระดับความสามารถปัจจุบัน (Competencies)
+            </h2>
             <p className={styles.cardSub}>
-              ประเมินจาก 360 Review ล่าสุด — ใช้เป็นข้อมูลตั้งต้นให้ AI Growth Analyst วิเคราะห์
+              ประเมินจาก 360 Review ล่าสุด — ใช้เป็นข้อมูลตั้งต้นให้ AI Growth
+              Analyst วิเคราะห์
             </p>
           </div>
 
           <div className={styles.skillGrid}>
             {EMPLOYEE.skills.map((skill) => (
-              <ProgressBar key={skill.name} value={skill.level} label={skill.name} tone="teal" size="sm" />
+              <ProgressBar
+                key={skill.name}
+                value={skill.level}
+                label={skill.name}
+                tone="teal"
+                size="sm"
+              />
             ))}
           </div>
         </div>
@@ -159,7 +200,8 @@ export default function ProfilePage() {
           <div>
             <span className={styles.readinessEyebrow}>AI Growth Analyst</span>
             <h2 className={styles.readinessTitle}>
-              พร้อมสำหรับตำแหน่ง {nextLevel?.code} · {nextLevel?.title} แล้ว {readiness}%
+              พร้อมสำหรับตำแหน่ง {nextLevel?.code} · {nextLevel?.title} แล้ว{" "}
+              {readiness}%
             </h2>
             <p className={styles.readinessSub}>
               ดูรายละเอียดช่องว่างทักษะ และคอร์สที่แนะนำเพื่อเติบโตสู่ระดับถัดไป
