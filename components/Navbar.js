@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className={`container ${styles.inner}`}>
         <Link href="/profile" className={styles.brand}>
           <span className={styles.brandMark} aria-hidden="true" />
-          PathFinder
+          SOS
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">

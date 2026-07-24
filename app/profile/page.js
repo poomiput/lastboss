@@ -19,7 +19,7 @@ const TRACK_STATUS_LABEL = {
 };
 
 export const metadata = {
-  title: "โปรไฟล์ | PathFinder",
+  title: "โปรไฟล์ | SOS",
 };
 
 export default function ProfilePage() {
