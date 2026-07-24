@@ -1,8 +1,15 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import styles from './article.module.scss';
-import Badge from '../../../../components/Badge';
-import { ARTICLES, FIELD_EXPERT, getArticleBySlug, TAG_COLORS, CATEGORY_LABELS } from '../../../../lib/data';
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import styles from "./article.module.scss";
+import Badge from "../../../../components/Badge";
+import {
+  ARTICLES,
+  FIELD_EXPERT,
+  getArticleBySlug,
+  TAG_COLORS,
+  CATEGORY_LABELS,
+} from "../../../../lib/data";
 
 export function generateStaticParams() {
   return ARTICLES.map((article) => ({ slug: article.slug }));
@@ -10,7 +17,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const article = getArticleBySlug(params.slug);
-  if (!article) return { title: 'ไม่พบบทความ | PathFinder' };
+  if (!article) return { title: "ไม่พบบทความ | PathFinder" };
   return {
     title: `${article.title} | PathFinder`,
     description: article.excerpt,
@@ -24,7 +31,10 @@ export default function ArticleDetailPage({ params }) {
     notFound();
   }
 
-  const otherArticles = ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 2);
+  const otherArticles = ARTICLES.filter((a) => a.slug !== article.slug).slice(
+    0,
+    2,
+  );
 
   return (
     <>
@@ -45,13 +55,28 @@ export default function ArticleDetailPage({ params }) {
           <h1 className={styles.title}>{article.title}</h1>
 
           <div className={styles.byline}>
-            <span className={styles.avatar} aria-hidden="true">
-              {FIELD_EXPERT.avatarInitials}
-            </span>
+            <div
+              style={{
+                border: "2px solid #00ed64",
+                width: "2rem",
+                height: "2rem",
+                borderRadius: "50%",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <Image
+                src="/profile.jpg"
+                alt="profile"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
             <div>
               <span className={styles.authorName}>{FIELD_EXPERT.name}</span>
               <span className={styles.authorMeta}>
-                {FIELD_EXPERT.title} · ประสบการณ์ {FIELD_EXPERT.yearsExperience} ปี · อ่าน {article.readTime}
+                {FIELD_EXPERT.title} · ประสบการณ์ {FIELD_EXPERT.yearsExperience}{" "}
+                ปี · อ่าน {article.readTime}
               </span>
             </div>
           </div>
@@ -97,7 +122,11 @@ export default function ArticleDetailPage({ params }) {
             <h2 className={styles.moreTitle}>บทความอื่นจากหน้างานจริง</h2>
             <div className={styles.moreGrid}>
               {otherArticles.map((a) => (
-                <Link key={a.slug} href={`/courses/insights/${a.slug}`} className={styles.moreCard}>
+                <Link
+                  key={a.slug}
+                  href={`/courses/insights/${a.slug}`}
+                  className={styles.moreCard}
+                >
                   <span className={styles.moreCardReadTime}>{a.readTime}</span>
                   <h3 className={styles.moreCardTitle}>{a.title}</h3>
                   <span className={styles.moreCardLink}>อ่านบทความ →</span>
