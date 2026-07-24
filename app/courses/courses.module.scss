@@ -57,6 +57,52 @@
   gap: var(--space-xl);
 }
 
+.insightsBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  background-color: var(--color-brand-teal-deep);
+  color: var(--color-on-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-xxl);
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-xl);
+  }
+}
+
+.insightsEyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-brand-green);
+}
+
+.insightsTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-on-dark);
+  margin-top: var(--space-xxs);
+  max-width: 560px;
+}
+
+.insightsSub {
+  font-size: 14px;
+  color: var(--color-on-dark-muted);
+  margin-top: 4px;
+}
+
+.insightsCta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brand-green);
+  white-space: nowrap;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;

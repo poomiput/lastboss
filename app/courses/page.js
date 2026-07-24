@@ -1,9 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import styles from './courses.module.scss';
 import CourseCard from '../../components/CourseCard';
-import { getCoursesWithProgress, CATEGORY_LABELS } from '../../lib/data';
+import { getCoursesWithProgress, CATEGORY_LABELS, FIELD_EXPERT, ARTICLES } from '../../lib/data';
 
 const FILTERS = [{ key: 'all', label: 'ทั้งหมด' }, ...Object.entries(CATEGORY_LABELS).map(([key, label]) => ({ key, label }))];
 
@@ -42,6 +43,19 @@ export default function CoursesPage() {
       </section>
 
       <section className={`container ${styles.body}`}>
+        <Link href="/courses/insights" className={styles.insightsBanner}>
+          <div>
+            <span className={styles.insightsEyebrow}>จากหน้างานจริง</span>
+            <h2 className={styles.insightsTitle}>
+              บทความจาก {FIELD_EXPERT.name} ผู้มีประสบการณ์หน้างาน {FIELD_EXPERT.yearsExperience} ปี
+            </h2>
+            <p className={styles.insightsSub}>
+              มุมมองที่คอร์สเรียนให้ไม่ได้ทั้งหมด — {ARTICLES.length} บทความจากคนที่ผ่านมันมาด้วยตัวเอง
+            </p>
+          </div>
+          <span className={styles.insightsCta}>อ่านบทความ →</span>
+        </Link>
+
         <div className={styles.filters} role="tablist" aria-label="กรองตามหมวดหมู่">
           {FILTERS.map((f) => (
             <button
