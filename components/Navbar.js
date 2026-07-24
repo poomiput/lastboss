@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import styles from './Navbar.module.scss';
-import { EMPLOYEE } from '../lib/data';
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import styles from "./Navbar.module.scss";
+import { EMPLOYEE } from "../lib/data";
 
 const NAV_ITEMS = [
-  { href: '/profile', label: 'โปรไฟล์' },
-  { href: '/growth', label: 'AI Growth Analyst' },
-  { href: '/courses', label: 'คอร์สเรียน' },
+  { href: "/profile", label: "โปรไฟล์" },
+  { href: "/growth", label: "AI Growth Analyst" },
+  { href: "/courses", label: "คอร์สเรียน" },
 ];
 
 export default function Navbar() {
@@ -35,7 +36,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
+                className={`${styles.navLink} ${active ? styles.navLinkActive : ""}`}
               >
                 {item.label}
               </Link>
@@ -44,20 +45,45 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.rightGroup}>
-          <Link href="/profile" className={styles.avatar} aria-label="ไปที่โปรไฟล์ของฉัน">
-            {EMPLOYEE.avatarInitials}
+          <Link
+            href="/profile"
+            className={styles.avatar}
+            aria-label="ไปที่โปรไฟล์ของฉัน"
+          >
+            <div
+              style={{
+                width: "2rem",
+                height: "2rem",
+                borderRadius: "50%",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <Image
+                src="/profile.jpg"
+                alt="profile"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
           </Link>
 
           <button
             type="button"
             className={styles.menuToggle}
-            aria-label={menuOpen ? 'ปิดเมนู' : 'เปิดเมนู'}
+            aria-label={menuOpen ? "ปิดเมนู" : "เปิดเมนู"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <span className={`${styles.menuBar} ${menuOpen ? styles.menuBarOpenTop : ''}`} />
-            <span className={`${styles.menuBar} ${menuOpen ? styles.menuBarOpenMid : ''}`} />
-            <span className={`${styles.menuBar} ${menuOpen ? styles.menuBarOpenBottom : ''}`} />
+            <span
+              className={`${styles.menuBar} ${menuOpen ? styles.menuBarOpenTop : ""}`}
+            />
+            <span
+              className={`${styles.menuBar} ${menuOpen ? styles.menuBarOpenMid : ""}`}
+            />
+            <span
+              className={`${styles.menuBar} ${menuOpen ? styles.menuBarOpenBottom : ""}`}
+            />
           </button>
         </div>
       </div>
@@ -70,7 +96,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`${styles.mobileNavLink} ${active ? styles.mobileNavLinkActive : ''}`}
+                className={`${styles.mobileNavLink} ${active ? styles.mobileNavLinkActive : ""}`}
               >
                 {item.label}
               </Link>

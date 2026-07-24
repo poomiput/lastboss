@@ -71,20 +71,6 @@
   }
 }
 
-.avatar {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-brand-teal-deep);
-  color: var(--color-on-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 600;
-}
-
 .menuToggle {
   display: none;
   flex-direction: column;
@@ -109,7 +95,9 @@
   height: 2px;
   border-radius: var(--radius-full);
   background-color: var(--color-ink);
-  transition: transform 150ms ease, opacity 150ms ease;
+  transition:
+    transform 150ms ease,
+    opacity 150ms ease;
 }
 
 .menuBarOpenTop {
